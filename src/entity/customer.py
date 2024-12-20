@@ -1,12 +1,13 @@
 from dataclasses import dataclass
 from address import Address
 
-@dataclass
+@dataclass(kw_only=True)
 class Customer:
     id: str
     name: str
     address: Address
     active: bool
+    rewards_points: int = 0
 
 
     def __post_init__(self):
@@ -25,4 +26,7 @@ class Customer:
 
     def deactivate(self):
         self.active = False
+
+    def add_rewards_points(self, points: int):
+        self.rewards_points += points
 
