@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from domain.entity.address import Address
-from domain.entity.customer import Customer
-from domain.entity.order import Order
-from domain.entity.order_item import OrderItem
-from domain.repository.order_repository_interface import OrderRepositoryInterface
+from domain.costumer.entity.value_object.address import Address
+from domain.costumer.entity.customer import Customer
+from domain.checkout.entity.order import Order
+from domain.checkout.entity.order_item import OrderItem
+from domain.checkout.repository.order_repository_interface import OrderRepositoryInterface
 from infrastructure.db.alchemy_orm.model import customer_model
 from infrastructure.db.alchemy_orm.model.customer_model import CustomerModel
 from infrastructure.db.alchemy_orm.model.order_item import OrderItemModel

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from entity.product import Product
+from domain.product.entity.product import Product
 
 @dataclass
 class ProductService:

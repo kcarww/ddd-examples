@@ -1,7 +1,7 @@
 from dataclasses import dataclass
-from entity.order import Order
-from entity.order_item import OrderItem
-from entity.customer import Customer
+from domain.checkout.entity.order import Order
+from domain.checkout.entity.order_item import OrderItem
+from domain.costumer.entity.customer import Customer
 import uuid
 
 @dataclass

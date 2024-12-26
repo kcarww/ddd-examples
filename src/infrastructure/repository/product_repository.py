@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from domain.entity.product import Product
-from domain.repository.product_repository_interface import ProductRepositoryInterface
+from domain.product.entity.product import Product
+from domain.product.repository.product_repository_interface import ProductRepositoryInterface
 from infrastructure.db.alchemy_orm.model.product_model import ProductModel
 
 @dataclass

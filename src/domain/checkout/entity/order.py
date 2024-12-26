@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from order_item import OrderItem
+from domain.checkout.entity.order_item import OrderItem
 
 @dataclass(kw_only=True)
 class Order:
