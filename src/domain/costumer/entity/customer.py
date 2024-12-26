@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from uuid import uuid4
-from address import Address
+
+from domain.costumer.entity.value_object.address import Address
 
 @dataclass(kw_only=True)
 class Customer:
