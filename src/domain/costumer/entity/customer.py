@@ -1,9 +1,10 @@
 from dataclasses import dataclass
+from uuid import uuid4
 from address import Address
 
 @dataclass(kw_only=True)
 class Customer:
-    id: str
+    id: uuid4
     name: str
     address: Address
     active: bool
