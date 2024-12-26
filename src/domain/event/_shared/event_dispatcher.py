@@ -12,15 +12,19 @@ class EventDispatcher(EventDispatcherInterface):
         return self._event_handlers
     
     def notify(self, event: EventInterface) -> None:
-        pass
+        event_name = event.__class__.__name__
+        if event_name in self._event_handlers:
+            for handler in self._event_handlers[event_name]:
+                handler.handle(event)
 
     def register(self, event_name: str, event_handler: EventHandler) -> None:
         if not event_name in self._event_handlers:
             self._event_handlers[event_name] = []
         self._event_handlers[event_name].append(event_handler)
 
-    def unregister(self, event_name: str, evnet_handler: EventHandler) -> None:
-        pass
+    def unregister(self, event_name: str, event_handler: EventHandler) -> None:
+        if event_name in self._event_handlers:
+            self._event_handlers[event_name].remove(event_handler)
 
     def unregister_all(self) -> None:
-        pass
+        self._event_handlers = {}
