@@ -1,8 +1,11 @@
 from dataclasses import dataclass
+from uuid import UUID
+
+from domain.product.entity.product_interface import ProductInterface
 
 @dataclass
-class Product:
-    id: str
+class Product(ProductInterface):
+    id: UUID
     name: str
     price: float
 
