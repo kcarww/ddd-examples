@@ -1,0 +1,12 @@
+# @name create_customer_use_case
+POST http://127.0.0.1:8000/api/customers/
+Content-Type: application/json
+
+{
+    "name": "AAAA Deeeee",
+    "street": "123 Main St",
+    "city": "Springfield",
+    "state": "IL",
+    "zip_code": "62701",
+    "country": "USA"
+}

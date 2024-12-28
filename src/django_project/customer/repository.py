@@ -9,7 +9,7 @@ from dataclasses import dataclass
 
 @dataclass
 class DjangoORMCustomerRepository(CustomerRepositoryInterface):
-    customer_model: CustomerModel
+    customer_model: CustomerModel = None
 
     def __post_init__(self):
         self.customer_model = CustomerModel()
@@ -17,6 +17,15 @@ class DjangoORMCustomerRepository(CustomerRepositoryInterface):
     def create(self, customer: Customer) -> None:
         customer_orm = CustomerModelMapper.to_model(customer)
         customer_orm.save()
+
+    def find(self, id: str) -> Customer:
+        pass
+
+    def find_all(self) -> list[Customer]:
+        pass
+
+    def update(self, customer: Customer) -> None:
+        pass
 
 
 class CustomerModelMapper:

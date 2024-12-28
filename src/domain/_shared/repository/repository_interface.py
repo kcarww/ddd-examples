@@ -3,7 +3,7 @@ from typing import Generic, TypeVar
 
 T = TypeVar("T")
 
-class RepositoryInterface(ABC, Generic[T]):
+class RepositoryInterface(Generic[T], ABC):
     @abstractmethod
     def create(self, entity: T) -> None:
         pass

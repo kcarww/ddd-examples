@@ -1,14 +1,14 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from uuid import uuid4
 
 from domain.costumer.entity.value_object.address import Address
 
 @dataclass(kw_only=True)
 class Customer:
-    id: uuid4
+    id: uuid4 = field(default_factory=uuid4)
     name: str
     address: Address
-    active: bool
+    active: bool = True
     rewards_points: int = 0
 
 
