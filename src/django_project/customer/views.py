@@ -18,8 +18,11 @@ class CustomerViewSet(viewsets.ViewSet):
 
         customer_input = CreateCustomerInput(**serializer.validated_data)
         use_case = CreateCustomerUseCase(customer_repository=DjangoORMCustomerRepository())
-        output = use_case.execute(customer_input)
-        return Response(
-            status=status.HTTP_201_CREATED,
-            data=CreateCustomerResponseSerializer(instance=output).data
-        )
+        try:
+            output = use_case.execute(customer_input)
+            return Response(
+                status=status.HTTP_201_CREATED,
+                data=CreateCustomerResponseSerializer(instance=output).data
+            )
+        except Exception as e:
+            return Response(status=status.HTTP_400_BAD_REQUEST, data=str(e))

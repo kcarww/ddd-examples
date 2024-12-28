@@ -1,11 +1,11 @@
 from dataclasses import dataclass, field
 from uuid import uuid4
 
+from domain._shared.entity.entity import Entity
 from domain.costumer.entity.value_object.address import Address
 
 @dataclass(kw_only=True)
-class Customer:
-    id: uuid4 = field(default_factory=uuid4)
+class Customer(Entity):
     name: str
     address: Address
     active: bool = True
@@ -17,12 +17,14 @@ class Customer:
 
     def validate(self):
         if not self.id:
-            raise ValueError("ID is required")
+            self.notification.add_error("ID is required")
         if not self.name:
-            raise ValueError("Name is required")
+            self.notification.add_error("Name is required")
         if not self.address:
-            raise ValueError("Address is required")
+            self.notification.add_error("Address is required")
         
+        if self.notification.has_errors:
+            raise ValueError(self.notification.messages)
     def activate(self):
         self.active = True
 

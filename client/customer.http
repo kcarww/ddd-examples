@@ -3,7 +3,7 @@ POST http://127.0.0.1:8000/api/customers/
 Content-Type: application/json
 
 {
-    "name": "AAAA Deeeee",
+    "name": "aaa",
     "street": "123 Main St",
     "city": "Springfield",
     "state": "IL",
